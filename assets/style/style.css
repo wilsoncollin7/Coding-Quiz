@@ -1,3 +1,7 @@
 #introJumbo {
-    visibility: visible;
+    
+}
+
+#questionJumbo {
+    display: none;
 }
