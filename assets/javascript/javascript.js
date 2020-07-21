@@ -15,28 +15,28 @@ questionJumbo.setAttribute("style", "display: none;")
 doneJumbo.setAttribute("style", "display: none;");
 
 var q1 = {
-    question: "qu1",
-    choices: ["w1","w2","w3","right"]
+    question: "Commonly used data types DO NOT include:",
+    choices: ["String","Boolean","Number","Float"]
 };
 
 var q2 = {
-    question: "qu2",
-    choices: ["w1","w2","w3","right"]
+    question: "Using ___ statement is how you test for a specific condition.",
+    choices: ["For","Select","If","Switch"]
 };
 
 var q3 = {
-    question: "qu3",
-    choices: ["w1","w2","w3","right"]
+    question: "Which of the following is not considered a JavaScript operator?",
+    choices: ["this","new","delete","typeof"]
 };
 
 var q4 = {
-    question: "qu4",
-    choices: ["w1","w2","w3","right"]
+    question: "JavaScript is interpreted by ____",
+    choices: ["Server","Client","Oject","None of these"]
 };
 
 var q5 = {
-    question: "qu5",
-    choices: ["w1","w2","w3","right"] 
+    question: "____method evaluates a string of JavaScript code in the context of the specified object.u5",
+    choices: ["Evparse","ParseInt","Parsclick","Eval"] 
 };
 
 startBtn.addEventListener("click", function() {
