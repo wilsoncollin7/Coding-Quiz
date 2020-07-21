@@ -40,10 +40,20 @@
                     </div>
                     <div class="jumbotron" id="questionJumbo">
                         <h1 class="display-4" id="question"></h1>
-                        <ul id="answers">
+                        <ol id="answers" type="A">
 
-                        </ul>
+                        </ol>
                         <p id="verdict"></p>
+                    </div>
+                    <div class="jumbotron" id="doneJumbo">
+                        <h1 class="display-4" style="color: #850685; font-weight: bold;">All Done!</h1>
+                        <p id="finalScoreDisplay">Your final score is: </p>
+                        <span>Enter your initials: 
+                            <form>
+                                <input type="text" id="initials" value="">
+                            </form><br>
+                            <a href="highscore.html"><button class="btn btn-primary btn-lg" id="submitBtn" role="button">Submit!</button></a>
+                        </span>
                     </div>
                 </div>
                 <div class="col-md-2"></div>

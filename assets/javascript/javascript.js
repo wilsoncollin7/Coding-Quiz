@@ -5,55 +5,41 @@ var answers = document.getElementById("answers");
 var verdict = document.getElementById("verdict");
 var timeDisplay = document.getElementById("timeDisplay");
 var startBtn = document.getElementById("startBtn");
+var doneJumbo = document.getElementById("doneJumbo")
+var submitBtn = document.getElementById("submitBtn")
 
 questionJumbo.setAttribute("style", "display: none;")
+doneJumbo.setAttribute("style", "display: none;");
 
 var q1 = {
-    question: "q1",
-    wrong1: "w1",
-    wrong2: "w2",
-    wrong3: "w3",
-    right: "right"
-
+    question: "qu1",
+    choices: ["w1","w2","w3","right"]
 };
 
 var q2 = {
-    question: "q2",
-    wrong1: "w1",
-    wrong2: "w2",
-    wrong3: "w3",
-    right: "right"
-
+    question: "qu2",
+    choices: ["w1","w2","w3","right"]
 };
 
 var q3 = {
-    question: "q3",
-    wrong1: "w1",
-    wrong2: "w2",
-    wrong3: "w3",
-    right: "right"
+    question: "qu3",
+    choices: ["w1","w2","w3","right"]
 };
 
 var q4 = {
-    question: "q4",
-    wrong1: "w1",
-    wrong2: "w2",
-    wrong3: "w3",
-    right: "right"
+    question: "qu4",
+    choices: ["w1","w2","w3","right"]
 };
 
 var q5 = {
-    question: "q5",
-    wrong1: "w1",
-    wrong2: "w2",
-    wrong3: "w3",
-    right: "right"
+    question: "qu5",
+    choices: ["w1","w2","w3","right"] 
 };
 
-
 startBtn.addEventListener("click", function() {
-
-    var timeLeft = 81
+    var timeLeft = 5;
+    introJumbo.setAttribute("style", "display: none;");
+    questionJumbo.setAttribute("style", "display: ;");
 
     function startTime() {
         var timerInterval = setInterval(function() {
@@ -68,11 +54,35 @@ startBtn.addEventListener("click", function() {
         }, 1000);
     };
 
+    function startQuiz() {
+        function quiz(x) {
+            
+            question.textContent = x.question;
+            var choices = x.choices
+
+            for (var i = 0; i < choices.length; i++) {
+                var li = document.createElement("li");
+                li.innerHTML = choices[i]
+                answers.appendChild(li);
+            };  
+        };
+
+        quiz(q1)
+
+        
+    };
+
+    function gameOver() {
+        introJumbo.setAttribute("style", "display: none;");
+        questionJumbo.setAttribute("style", "display: none;");
+        doneJumbo.setAttribute("style", "display: ;");
+    };
+
+    submitBtn.addEventListener("click", function() {
+        
+    });
+
     startTime()
-
-    introJumbo.setAttribute("style", "display: none;");
-    questionJumbo.setAttribute("style", "display: ;")
-
-    
+    startQuiz()
 
 });
