@@ -39,8 +39,10 @@ var q5 = {
     choices: ["Evparse","ParseInt","Parsclick","Eval"] 
 };
 
+var timeLeft = 81;
+
 startBtn.addEventListener("click", function() {
-    var timeLeft = 81;
+    
     introJumbo.setAttribute("style", "display: none;");
     questionJumbo.setAttribute("style", "display: ;");
 
@@ -163,35 +165,38 @@ startBtn.addEventListener("click", function() {
         })
     };
 
-
-
     function gameOver() {
         introJumbo.setAttribute("style", "display: none;");
         questionJumbo.setAttribute("style", "display: none;");
         doneJumbo.setAttribute("style", "display: ;");
         finalScore.textContent = "Your final score is: " + timeLeft
-        
-    };
-
-    var highScores = [];
-
-    submitBtn.addEventListener("click", function(event) {
-        var initialText = initialInput.value.trim()
-
-        if (initialText === "") {
-            return;
-        };
-
-        highScores.push(initialText + ' score ' + timeLeft)
-        console.log(highScores)
-        
-        storeHigh()
-    });
-
-    function storeHigh () {
-        localStorage.setItem("scores", JSON.stringify(highScores));
     };
 
     startTime()
     ques1()
 });
+
+var highScores = [];
+
+submitBtn.addEventListener("click", function() {
+    
+    var initialText = initialInput.value.trim()
+
+    if (initialText === "") {
+        return;
+    }
+
+    // var storedScores = JSON.parse(localStorage.getItem("scores"));
+
+    if (highScores !== null) {
+        highScores = JSON.parse(localStorage.getItem("scores"));
+    } 
+
+    highScores.push(initialText + " score: " + timeLeft)
+    
+    storedScores()
+});
+
+function storedScores() {
+    localStorage.setItem("scores", JSON.stringify(highScores));
+};

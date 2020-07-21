@@ -25,6 +25,11 @@ function init() {
     };
 
     renderHigh();
-}
+};
+
+clear.addEventListener("click", function() {
+    localStorage.clear()
+    highList.innerHTML = ""
+})
 
 renderHigh();
