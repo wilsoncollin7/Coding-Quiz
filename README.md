@@ -1,3 +1,3 @@
 # Coding-Quiz
 
-![](images/introPage.JPG)
+<img src="images/ntroPage.JPG width="100>
