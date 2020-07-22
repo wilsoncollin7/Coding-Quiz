@@ -7,6 +7,7 @@
     </head>
     <body>
         <header>
+            <!-- header with the nav bar -->
             <nav class="navbar navbar-expand-lg navbar-light mb-5" style="background-color: #efeeef;">
                 <a class="navbar-brand" href="highscore.html" style="color: #850685;">View Highscores</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,16 +29,18 @@
                 </div>
               </nav>
         </header>
-
+        <!-- container where the jumbotrons live -->
         <section class="container">
             <article class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
+                    <!-- jumbo for the intro page -->
                     <div class="jumbotron" id="introJumbo" style="text-align: center;">
                         <h1 class="display-4" style="color: #850685; font-weight: bold;">Coding Quiz!</h1>
                         <p>This coding quiz tests your coding knowledge with five questions! You must answer them before the time runs out! If you answer a questiosn wrong you will lose more time! Fastest time wins!</p>
                         <button class="btn btn-primary btn-lg" id="startBtn" role="button">Start!</button>
                     </div>
+                    <!-- jumbo for the questions which dynamically changes -->
                     <div class="jumbotron" id="questionJumbo">
                         <h1 class="display-4" id="question"></h1>
                         <ol id="answers" type="A">
@@ -45,6 +48,7 @@
                         </ol>
                         <p id="verdict"></p>
                     </div>
+                    <!-- jumbo for the all done page which links to other html -->
                     <div class="jumbotron" id="doneJumbo">
                         <h1 class="display-4" style="color: #850685; font-weight: bold;">All Done!</h1>
                         <p id="finalScoreDisplay">Your final score is: </p>

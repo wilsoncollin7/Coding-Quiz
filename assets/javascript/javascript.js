@@ -1,3 +1,4 @@
+// all of the variables
 var introJumbo = document.getElementById("introJumbo");
 var questionJumbo = document.getElementById("questionJumbo");
 var question = document.getElementById("question");
@@ -11,9 +12,12 @@ var initialInput = document.getElementById("initials");
 var finalScore = document.getElementById("finalScoreDisplay");
 
 
-questionJumbo.setAttribute("style", "display: none;")
+
+// setting the other jumbos to not show
+questionJumbo.setAttribute("style", "display: none;");
 doneJumbo.setAttribute("style", "display: none;");
 
+// all of the questions
 var q1 = {
     question: "Commonly used data types DO NOT include:",
     choices: ["String","Boolean","Number","Float"]
@@ -41,11 +45,13 @@ var q5 = {
 
 var timeLeft = 81;
 
+
+// the click event which is where most of the code lives
 startBtn.addEventListener("click", function() {
-    
+    // adjusting the jumbo displays
     introJumbo.setAttribute("style", "display: none;");
     questionJumbo.setAttribute("style", "display: ;");
-
+    // setting the timer function
     function startTime() {
         var timerInterval = setInterval(function() {
             timeLeft--;
@@ -58,36 +64,36 @@ startBtn.addEventListener("click", function() {
       
         }, 1000);
     };
-
+    // setting the quiz function which changes the infomation
     function quiz(x) {
         
-        answers.innerHTML = ""
+        answers.innerHTML = "";
         question.textContent = x.question;
-        var choices = x.choices
+        var choices = x.choices;
 
         for (var i = 0; i < choices.length; i++) {
             var li = document.createElement("li");
-            li.setAttribute("class", "choice btn btn-secondary mb-1 mt-2")
-            li.setAttribute("id", [i])
-            li.textContent = choices[i]
-            var br = document.createElement("br")
+            li.setAttribute("class", "choice btn btn-secondary mb-1 mt-2");
+            li.setAttribute("id", [i]);
+            li.textContent = choices[i];
+            var br = document.createElement("br");
             answers.appendChild(li);
             answers.appendChild(br);
         };  
     };
-
+    // the answer right function
     function right() {
-        verdict.textContent = "right!"
+        verdict.textContent = "right!";
     };
-
+    //the answer wrong function
     function wrong() {
-        verdict.textContent = "wrong!"
-        timeLeft = timeLeft - 1
+        verdict.textContent = "wrong!";
+        timeLeft = timeLeft - 1;
     };
-
+    //this section is where each question is called after a if else and click event is triggered
     function ques1() {
         
-        quiz(q1)
+        quiz(q1);
         
         answers.addEventListener("click", function(event) {
             var target = event.target;
@@ -97,13 +103,13 @@ startBtn.addEventListener("click", function() {
             } else {
                 wrong();
                 ques2();
-            }
-        })
+            };
+        });
     };
 
     function ques2() {
         
-        quiz(q2)
+        quiz(q2);
         
         answers.addEventListener("click", function(event) {
             var target = event.target;
@@ -113,13 +119,13 @@ startBtn.addEventListener("click", function() {
             } else {
                 wrong();
                 ques3();
-            }
-        })
+            };
+        });
     };
 
     function ques3() {
         
-        quiz(q3)
+        quiz(q3);
         
         answers.addEventListener("click", function(event) {
             var target = event.target;
@@ -129,13 +135,13 @@ startBtn.addEventListener("click", function() {
             } else {
                 wrong();
                 ques4();
-            }
-        })
+            };
+        });
     };
 
     function ques4() {
         
-        quiz(q4)
+        quiz(q4);
         
         answers.addEventListener("click", function(event) {
             var target = event.target;
@@ -145,58 +151,47 @@ startBtn.addEventListener("click", function() {
             } else {
                 wrong();
                 ques5();
-            }
-        })
+            };
+        });
     };
 
     function ques5() {
         
-        quiz(q5)
+        quiz(q5);
         
         answers.addEventListener("click", function(event) {
             var target = event.target;
             if (target.id === "3") {
                 right();
-                gameOver()
+                gameOver();
             } else {
                 wrong();
-                gameOver()
-            }
-        })
+                gameOver();
+            };
+        });
     };
-
+    // game over funcation
     function gameOver() {
         introJumbo.setAttribute("style", "display: none;");
         questionJumbo.setAttribute("style", "display: none;");
         doneJumbo.setAttribute("style", "display: ;");
-        finalScore.textContent = "Your final score is: " + timeLeft
+        finalScore.textContent = "Your final score is: " + timeLeft;
     };
-
-    startTime()
-    ques1()
+    // here is where the time and questions funcations are called to begin the game
+    startTime();
+    ques1();
 });
-
+// this section is responsible for adding the highscore to the browser memory
 var highScores = [];
-
 submitBtn.addEventListener("click", function() {
-    
-    var initialText = initialInput.value.trim()
-
+    var initialText = initialInput.value.trim();
     if (initialText === "") {
         return;
-    }
-
-    // var storedScores = JSON.parse(localStorage.getItem("scores"));
-
-    if (highScores !== null) {
-        highScores = JSON.parse(localStorage.getItem("scores"));
-    } 
-
-    highScores.push(initialText + " score: " + timeLeft)
-    
-    storedScores()
+    };
+    highScores.push(initialText + " Score: " + timeLeft);
+    storedScores();
 });
-
+// here is where the store memory function is created
 function storedScores() {
     localStorage.setItem("scores", JSON.stringify(highScores));
 };

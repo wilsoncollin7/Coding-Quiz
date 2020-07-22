@@ -1,10 +1,11 @@
+// this page is for the highscore javascript
 var highList = document.getElementById("highList");
 var clear = document.getElementById("clearBtn");
 
 var highScores = [];
-
-init()
-
+// calling the initiation function to start the rendering of the highscores
+init();
+// the rendering of the highscore function
 function renderHigh() {
     highList.innerHTML = "";
   
@@ -15,21 +16,18 @@ function renderHigh() {
         highList.append(li);
     };
 };
-
+// the initiation function
 function init() {
-    
     var storedScores = JSON.parse(localStorage.getItem("scores"));
-  
     if (storedScores !== null) {
       highScores = storedScores;
     };
-
     renderHigh();
 };
-
+// the click listener for the clear button which clears the memory
 clear.addEventListener("click", function() {
-    localStorage.clear()
+    localStorage.clear();
     highList.innerHTML = ""
-})
-
+});
+// calling the render function
 renderHigh();
