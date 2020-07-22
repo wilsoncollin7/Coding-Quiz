@@ -1,3 +1,3 @@
 # Coding-Quiz
 
-<img src="images/ntroPage.JPG width="100>
+<img src="images/introPage.JPG" width="100" >
